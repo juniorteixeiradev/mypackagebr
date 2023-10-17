@@ -3,22 +3,22 @@ import api from "../../services/apiCorreios";
 import styles from "./Container.module.css";
 import { useSpring, animated } from 'react-spring';
 
-
-function Container({children, codigoPkt}) {
+function Container({children, codigoPkt, containerVisible}) {
   const [res, setRes] = useState({});
+  const [codigoPktState, setCodigoPkt] = useState(codigoPkt);
   async function findPackage() {
-    try {
-      if(codigoPkt !== ''){
+    if(codigoPktState !== '' && codigoPktState.length <= 13){
+      try {
         const response = await api.get(`/json?user=juniorteixeira.dev@gmail.com&token=c3d9be2addf040b8442593c2cb69f04812097e69012b1bb4aa04dfbda4c4cacb&codigo=${codigoPkt}`); // Insira a URL da sua API aqui
         setRes(response.data);
-      }
-      else{
-        alert('Campo vazio!')
-      }
-    } catch (error) {
-      console.log('Erro na requisição', error);
-    }
 
+      } catch (error) {
+        console.log('Erro na requisição', error);
+      }
+    }
+    else{
+      alert('Campo vazio!' || 'Código maior que 13 char')
+    }
   }
    // Animação 
   const cAnimation = useSpring({

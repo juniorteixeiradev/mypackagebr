@@ -14,7 +14,7 @@ function Main ({children}){
         else {
             setInput(input);
             setLoading(true);
-
+            
             setTimeout(()=> {
                 setContainerVisible(true);
                 setLoading(false);
@@ -28,7 +28,7 @@ function Main ({children}){
                 
                 <div className={styles.form}>
                     <label>Digite ou cole o código do pacote:</label>
-                    <input type="text" placeholder="LN567808BR" value={input} onChange={(e) => setInput(e.target.value)}>
+                    <input maxLength="13" type="text" placeholder="LN567808BR" value={input} onChange={(e) => setInput(e.target.value)}>
                     </input>
                     <LuPackageSearch className={styles.searchicon} onClick={clicou} />
 
@@ -42,7 +42,7 @@ function Main ({children}){
             // ou renderiza o loading ou o container 
             loading ? (
                 <span className={styles.loader}></span>
-             ) : (containerVisible && <Container codigoPkt={input} />) 
+             ) : (containerVisible && <Container codigoPkt={input} containerVisible={containerVisible} />) 
             }
        {children}
         </>
@@ -50,4 +50,4 @@ function Main ({children}){
     );
 }
 
-export default Main
+export default Main;
