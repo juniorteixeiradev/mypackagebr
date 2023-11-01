@@ -28,9 +28,11 @@ function Main ({children}){
                 
                 <div className={styles.form}>
                     <label>Digite ou cole o código do pacote:</label>
+                    <div className={styles.inputcontainer}>
                     <input maxLength="13" type="text" placeholder="LN567808BR" value={input} onChange={(e) => setInput(e.target.value)}>
                     </input>
                     <LuPackageSearch className={styles.searchicon} onClick={clicou} />
+                    </div>
 
 
                 

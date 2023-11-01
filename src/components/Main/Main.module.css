@@ -34,12 +34,17 @@
     width: 361px;
     height: 40px;
 }
-
+.inputcontainer{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .searchicon {
     width: 56px;
     height: 43px;
-    transform: translateY(-45px);
-    margin-left: 300px;
+    position: absolute;
+    right: 0;
     cursor:pointer;
     opacity: 0.7;
     transition: ease-in-out 1s;
@@ -118,7 +123,5 @@
     .searchicon{
       width: 46px;
       height: 33px;
-      transform: translateY(-2.3rem);
-      margin-left: 300px;
     }
   }
